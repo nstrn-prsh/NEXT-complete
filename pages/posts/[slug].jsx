@@ -30,13 +30,18 @@ export async function getStaticPaths() {
           params: { slug: post.slug },
      }));
 
+     // g10
+     if (router.isFallback) {
+          return <div>Loading...</div>;
+     }
+
      return {
           /*paths: [
                { params: { slug: 1 } },
                { params: { slug: 2 } },
           ],*/
           paths,
-          fallback: false,
+          fallback: true,
      };
 }
 
@@ -44,6 +49,11 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
      console.log("params", params);
      const post = await getPost(params.slug);
+
+     // g10
+     if (!post[0]) {
+          return { notFound: true };
+     }
 
      return { props: { post: post[0] } };
 }
