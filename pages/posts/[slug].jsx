@@ -2,6 +2,7 @@ import { useRouter } from "next/dist/client/router";
 import { getPost, loadPosts } from "./../lib/fetch";
 import { getStaticPaths, getStaticProps } from "./ssg.js";
 import { getServerStaticProps } from "./ssr";
+import Head from "next/head";
 
 const Any = ({ post }) => {
      const router = useRouter();
@@ -11,6 +12,9 @@ const Any = ({ post }) => {
 
      return (
           <div>
+               <Head>
+                    <title>run server - build - start</title>
+               </Head>
                <p>
                     {/*note: ba estefade az getStaticProps() mitonim "content" post ro daryaft bokonim */}
                     post slug: {slug}
@@ -32,5 +36,4 @@ export default Any;
 // getStaticProps();
 
 // SSR
-getServerStaticProps()
-
+getServerStaticProps();
