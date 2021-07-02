@@ -31,9 +31,9 @@ export async function getStaticPaths() {
      }));
 
      // g10
-     if (router.isFallback) {
-          return <div>Loading...</div>;
-     }
+     // if (router.isFallback) {
+     //      return <div>Loading...</div>;
+     // }
 
      return {
           /*paths: [
@@ -41,7 +41,11 @@ export async function getStaticPaths() {
                { params: { slug: 2 } },
           ],*/
           paths,
-          fallback: true,
+          // fallback: true,
+          // g10
+          // fallback: true,
+          // g11
+          fallback: "blocking",
      };
 }
 
@@ -51,9 +55,16 @@ export async function getStaticProps({ params }) {
      const post = await getPost(params.slug);
 
      // g10
+     // notFound vaghti return mishe ke vaghean ye posti mojod nabashe (yani bade build ham ezafe nashode bashe)
      if (!post[0]) {
           return { notFound: true };
      }
 
-     return { props: { post: post[0] } };
+     // age post mojod bood in ghesmat ejra mishe
+     return {
+          props: {
+               post: post[0],
+          },
+          revalidate: 1,
+     };
 }
