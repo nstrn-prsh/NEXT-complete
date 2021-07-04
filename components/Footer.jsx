@@ -1,4 +1,4 @@
-import styles from "./Footer.module.css";
+import styles from "Footer.module.css";
 import { Image } from "next/image";
 
 export default function Footer() {
@@ -6,11 +6,7 @@ export default function Footer() {
           <>
                <footer className={styles.footer}>
                     React Course{" "}
-                    <Image
-                         src='#'
-                         alt='logo'
-                         className={styles.logo}
-                    />
+                    <Image src='#' alt='logo' className={styles.logo} />
                </footer>
           </>
      );

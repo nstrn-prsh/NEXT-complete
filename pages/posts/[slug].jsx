@@ -1,7 +1,7 @@
 import { useRouter } from "next/dist/client/router";
-import { getPost, loadPosts } from "./../lib/fetch";
-import { getStaticPaths, getStaticProps } from "./ssg.js";
-import { getServerStaticProps } from "./ssr";
+import { getPost, loadPosts } from "lib/fetch";
+import { getStaticPaths, getStaticProps } from "ssg.js";
+import { getServerStaticProps } from "ssr";
 import Head from "next/head";
 
 const Any = ({ post }) => {

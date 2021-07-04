@@ -1,4 +1,4 @@
-import loadPosts from "./lib/fetch";
+import loadPosts from "lib/fetch";
 import Link from "next/link";
 
 const Index = ({ posts }) => {

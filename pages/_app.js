@@ -1,5 +1,5 @@
 // import '../styles/globals.css'
-import "../styles/global.css";
+import "@styles/global.css";
 
 // g17
 function MyApp({ Component, pageProps }) {
