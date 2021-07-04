@@ -1,5 +1,6 @@
 import loadPosts from "lib/fetch";
 import Link from "next/link";
+import Child from './effect';
 
 const Index = ({ posts }) => {
      const postTitles = posts ? (
@@ -46,3 +47,30 @@ export const getStaticProps = async () => {
 };
 
 export default Index;
+
+/*
+const Home = () => {
+     // g20
+     const now = new Date()
+     
+     // g21
+     const [showChild, setShowChild] = useState(false)
+     useEffect(() => {
+         setShowChild(true)
+     }, [])
+     useLayoutEffect(() => {
+          console.log('object');
+     }, [])
+
+     return ( 
+          <div suppressContentEditableWarning={true}>
+//           {typeof window !== "undefined"  ? "Browser" : "Server"} 
+               {now.getMilliseconds()}
+
+{showChild && <Child />}
+          </div>
+      );
+}
+ 
+export default Home;
+*/
